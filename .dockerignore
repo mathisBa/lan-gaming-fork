@@ -1,0 +1,29 @@
+# dépendances locales
+node_modules
+# sortie du build
+dist
+# fichiers de configuration locaux
+.vscode
+.DS_Store
+
+# sources de Git
+.git
+.gitignore
+
+# Dockerfiles
+.dockerignore
+
+# documentations
+*.md
+
+#Storybook
+.storybook
+
+# Maquette
+maquette 
+
+#env
+.env.exemple
+
+#prettier
+.prettierrc

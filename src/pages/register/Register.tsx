@@ -257,8 +257,8 @@ function Register() {
       <h1 className="pageTitle">Inscription</h1>
       <Card>
         <div className="register-container">
-        <InfoTournament isRegistration={true} />
-      
+          <InfoTournament isRegistration={true} />
+
           <div className="register-form">
             <h2>Equipe</h2>
             <form className="player-form">
@@ -346,7 +346,7 @@ function Register() {
                   variant="primary"
                   onClick={submitRegister}
                 >
-                  S'inscrire
+                  S'inscrire{error}
                 </PrimaryButton>
               </div>
             </form>
