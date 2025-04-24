@@ -1,18 +1,41 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test";
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test("homepage visual regression", async ({ page }) => {
+  await page.goto("http://localhost:5174/");
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
+  // Capture d’écran full-page
+  const shot = await page.screenshot({ fullPage: true });
+  expect(shot).toMatchSnapshot("home-page.png", {
+    maxDiffPixelRatio: 0.01 // allow up to 1% of pixels to differ
+  });
 });
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test("register visual regression", async ({ page }) => {
+  await page.goto("http://localhost:5174/register");
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
+  // Capture d’écran full-page
+  const shot = await page.screenshot({ fullPage: true });
+  expect(shot).toMatchSnapshot("register-page.png", {
+    maxDiffPixelRatio: 0.01 // allow up to 1% of pixels to differ
+  });
+});
 
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+test("tournament visual regression", async ({ page }) => {
+  await page.goto("http://localhost:5174/tournament");
+
+  // Capture d’écran full-page
+  const shot = await page.screenshot({ fullPage: true });
+  expect(shot).toMatchSnapshot("tournament-page.png", {
+    maxDiffPixelRatio: 0.01 // allow up to 1% of pixels to differ
+  });
+});
+
+test("results visual regression", async ({ page }) => {
+  await page.goto("http://localhost:5174/results");
+
+  // Capture d’écran full-page
+  const shot = await page.screenshot({ fullPage: true });
+  expect(shot).toMatchSnapshot("results-page.png", {
+    maxDiffPixelRatio: 0.01 // allow up to 1% of pixels to differ
+  });
 });
